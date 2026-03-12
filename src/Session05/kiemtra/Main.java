@@ -91,11 +91,15 @@ public class Main {
             System.out.println("Danh sách rỗng");
             return;
         }
-        products.forEach(product->{
-            if (product.getQuantity() == 0) {
-                products.remove(product);
-            }
-        });
+        boolean removed = products.removeIf(product -> product.getQuantity() == 0);
+        // remove tất cả product có quantity = 0
+
+        if (removed) {
+            System.out.println("Đã xóa các sản phẩm có số lượng = 0");
+        } else {
+            System.out.println("Không có sản phẩm nào cần xóa");
+        }
+
 
 //        boolean check = products.stream().anyMatch(p -> p.getId() == id);
 //        if (check) {
@@ -110,13 +114,14 @@ public class Main {
             System.out.println("Danh sách trống");
             return;
         }
-        boolean check = products.stream().anyMatch(p -> p.getId() == id);
-        if (check) {
-            int Quantity = products.get(id).getQuantity();
-            products.get(id).setQuantity(quantity+Quantity);
-            System.out.println("Đã cập nhật số lượng sản phẩm");
-        }else{
-            throw new InvalidProductException("ID sản phẩm không tồn tại");
-        }
+        Product product = products.stream()
+                .filter(p -> p.getId() == id) // tìm product theo id
+                .findFirst()
+                .orElseThrow(() -> new InvalidProductException("ID sản phẩm không tồn tại"));
+
+        product.setQuantity(quantity); // cập nhật số lượng
+
+        System.out.println("Đã cập nhật số lượng sản phẩm");
+
     }
 }
