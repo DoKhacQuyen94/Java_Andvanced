@@ -19,10 +19,8 @@ public class ProductDatabase {
         products.add(product);
         System.out.println("Thêm sản phẩm thành công");
     }
-    void removeProduct(String id){
-        products.remove(id);
-        System.out.println("Xóa sản phẩm thành công");
-
+    boolean removeProduct(String id){
+       return products.removeIf(p->p.getId().equals(id));
     }
     boolean updateProduct(String id){
         Product p = getProductById(id);

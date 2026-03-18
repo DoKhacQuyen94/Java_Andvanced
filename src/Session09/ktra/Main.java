@@ -61,7 +61,11 @@ public class Main {
                 case 4:
                     System.out.println("Nhập id cần xóa: ");
                     String deleId = sc.next();
-                    db.removeProduct(deleId);
+                    if(db.removeProduct(deleId)){
+                        System.out.println("Xóa thành công");
+                    }else {
+                        System.out.println("Xóa thất bại");
+                    }
                     break;
                 case 5:
                     System.out.println("Bạn đã thoát chương trình");

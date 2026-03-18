@@ -1,8 +1,8 @@
-package SS9.smartsim.model;
+package Session09.smartsim.model;
 
-import SS9.smartsim.engine.Intersection;
-import SS9.smartsim.traffic.TrafficLight;
-import SS9.smartsim.util.LogUtil;
+import Session09.smartsim.engine.Intersection;
+import Session09.smartsim.traffic.TrafficLight;
+import Session09.smartsim.util.LogUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -32,7 +32,7 @@ public class PriorityVehicle extends Vehicle {
     }
 
     @Override
-    public void onLightChanged(SS9.smartsim.traffic.TrafficLightState newState) {
+    public void onLightChanged(Session09.smartsim.traffic.TrafficLightState newState) {
         // Priority vehicles could log or take special action.
         super.onLightChanged(newState);
     }

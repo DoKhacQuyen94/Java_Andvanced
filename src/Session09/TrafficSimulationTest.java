@@ -1,8 +1,8 @@
-package SS9;
+package Session09;
 
-import SS9.smartsim.engine.Intersection;
-import SS9.smartsim.engine.Simulator;
-import SS9.smartsim.traffic.TrafficLight;
+import Session09.smartsim.engine.Intersection;
+import Session09.smartsim.engine.Simulator;
+import Session09.smartsim.traffic.TrafficLight;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -50,8 +50,8 @@ public class TrafficSimulationTest {
         for (int i = 0; i < vehicleCount; i++) {
             executor.submit(() -> {
                 // Create a fast vehicle so test completes quickly.
-                SS9.smartsim.model.Vehicle vehicle = new SS9.smartsim.model.StandardVehicle(
-                        SS9.smartsim.model.VehicleType.CAR,
+                Session09.smartsim.model.Vehicle vehicle = new Session09.smartsim.model.StandardVehicle(
+                        Session09.smartsim.model.VehicleType.CAR,
                         20,
                         intersection,
                         light);

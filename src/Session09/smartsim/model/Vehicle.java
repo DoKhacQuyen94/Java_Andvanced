@@ -1,7 +1,7 @@
-package SS9.smartsim.model;
+package Session09.smartsim.model;
 
-import SS9.smartsim.traffic.TrafficLightObserver;
-import SS9.smartsim.traffic.TrafficLightState;
+import Session09.smartsim.traffic.TrafficLightObserver;
+import Session09.smartsim.traffic.TrafficLightState;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

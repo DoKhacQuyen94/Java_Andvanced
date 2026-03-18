@@ -1,11 +1,11 @@
-package SS9.smartsim.factory;
+package Session09.smartsim.factory;
 
-import SS9.smartsim.engine.Intersection;
-import SS9.smartsim.model.PriorityVehicle;
-import SS9.smartsim.model.StandardVehicle;
-import SS9.smartsim.model.Vehicle;
-import SS9.smartsim.model.VehicleType;
-import SS9.smartsim.traffic.TrafficLight;
+import Session09.smartsim.engine.Intersection;
+import Session09.smartsim.model.PriorityVehicle;
+import Session09.smartsim.model.StandardVehicle;
+import Session09.smartsim.model.Vehicle;
+import Session09.smartsim.model.VehicleType;
+import Session09.smartsim.traffic.TrafficLight;
 
 import java.util.concurrent.ThreadLocalRandom;
 

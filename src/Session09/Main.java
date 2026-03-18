@@ -1,6 +1,6 @@
-package SS9;
+package Session09;
 
-import SS9.smartsim.engine.Simulator;
+import Session09.smartsim.engine.Simulator;
 
 public class Main {
     public static void main(String[] args) {

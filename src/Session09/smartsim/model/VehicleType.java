@@ -1,4 +1,4 @@
-package SS9.smartsim.model;
+package Session09.smartsim.model;
 
 public enum VehicleType {
     MOTORCYCLE,

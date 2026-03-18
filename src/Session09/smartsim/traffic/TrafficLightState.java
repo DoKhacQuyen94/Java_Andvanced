@@ -1,4 +1,4 @@
-package SS9.smartsim.traffic;
+package Session09.smartsim.traffic;
 
 public interface TrafficLightState {
     String getName();

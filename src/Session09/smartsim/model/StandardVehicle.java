@@ -1,8 +1,9 @@
-package SS9.smartsim.model;
+package Session09.smartsim.model;
 
-import SS9.smartsim.engine.Intersection;
-import SS9.smartsim.traffic.TrafficLight;
-import SS9.smartsim.util.LogUtil;
+import Session09.smartsim.engine.Intersection;
+import Session09.smartsim.traffic.TrafficLight;
+import Session09.smartsim.traffic.TrafficLightState;
+import Session09.smartsim.util.LogUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +34,7 @@ public class StandardVehicle extends Vehicle {
     }
 
     @Override
-    public void onLightChanged(SS9.smartsim.traffic.TrafficLightState newState) {
+    public void onLightChanged(TrafficLightState newState) {
         // Not used in this basic model; intersection coordinates behavior.
     }
 }

@@ -1,4 +1,4 @@
-package SS9.smartsim.traffic;
+package Session09.smartsim.traffic;
 
 public class YellowState implements TrafficLightState {
     private final TrafficLight trafficLight;

@@ -1,4 +1,4 @@
-package SS9.smartsim.exception;
+package Session09.smartsim.exception;
 
 public class TrafficJamException extends RuntimeException {
     public TrafficJamException(String message) {

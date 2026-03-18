@@ -1,6 +1,6 @@
-package SS9.smartsim.traffic;
+package Session09.smartsim.traffic;
 
-import SS9.smartsim.util.LogUtil;
+import Session09.smartsim.util.LogUtil;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;

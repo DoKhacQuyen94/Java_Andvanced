@@ -1,11 +1,11 @@
-package SS9.smartsim.engine;
+package Session09.smartsim.engine;
 
-import SS9.smartsim.exception.CollisionException;
-import SS9.smartsim.exception.TrafficJamException;
-import SS9.smartsim.model.Vehicle;
-import SS9.smartsim.traffic.TrafficLight;
-import SS9.smartsim.traffic.TrafficLightState;
-import SS9.smartsim.util.LogUtil;
+import Session09.smartsim.exception.CollisionException;
+import Session09.smartsim.exception.TrafficJamException;
+import Session09.smartsim.model.Vehicle;
+import Session09.smartsim.traffic.TrafficLight;
+import Session09.smartsim.traffic.TrafficLightState;
+import Session09.smartsim.util.LogUtil;
 
 import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
@@ -18,7 +18,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Intersection is a critical section representing the crossroad.
  * It allows a limited number of vehicles to cross at the same time.
  */
-public class Intersection implements SS9.smartsim.traffic.TrafficLightObserver {
+public class Intersection implements Session09.smartsim.traffic.TrafficLightObserver {
     private final ReentrantLock lock = new ReentrantLock(true);
     private final Condition greenCondition = lock.newCondition();
 
