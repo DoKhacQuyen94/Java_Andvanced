@@ -1,0 +1,10 @@
+
+
+ * PHẦN 1 - PHÂN TÍCH LOGIC: TẠI SAO LỖI VẪN BỊ TRỪ THUỐC?
+ * * 1. Chế độ Auto-Commit mặc định: 
+ * - JDBC mặc định mỗi lệnh executeUpdate() là một giao dịch riêng biệt.
+ * - Khi ps1 (trừ thuốc) chạy xong, dữ liệu đã bị "chốt" xuống MySQL ngay lập tức.
+ * * 2. Vi phạm tính Atomicity (Nguyên tử):
+ * - Khi xảy ra lỗi (ví dụ: lỗi mạng hoặc chia cho 0) trước khi ps2 (ghi lịch sử) chạy,
+ * hệ thống không tự động lấy lại số thuốc đã trừ. 
+ * - Kết quả: Thuốc mất nhưng hồ sơ bệnh án không có -> Thất thoát sổ sách.

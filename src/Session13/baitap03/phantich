@@ -1,0 +1,23 @@
+1. Phân tích bài toán (I/O)
+   Input (Dữ liệu đầu vào):
+    maBenhNhan (int): Mã định danh duy nhất của bệnh nhân trong hệ thống.
+    tienVienPhi (double): Số tiền viện phí cần thanh toán (phải là số dương).
+    Output (Kết quả trả về):
+    Trả về true nếu toàn bộ 3 bước (Trừ tiền, Giải phóng giường, Cập nhật trạng thái) thành công.
+    Trả về false hoặc ném ngoại lệ kèm thông báo chi tiết nếu có bất kỳ bước nào thất bại hoặc vi phạm "bẫy" dữ liệu.
+
+2. Đề xuất giải pháp
+Sử dụng đối tượng Connection từ DatabaseManager để kiểm soát giao dịch:
+Cơ chế Atomic: Tắt chế độ setAutoCommit(false) để gom 3 lệnh UPDATE thành một khối thống nhất.
+Xử lý Bẫy 1 (Thiếu tiền): Thực hiện một câu lệnh SELECT trước khi UPDATE. Nếu số dư không đủ, chủ động ném Exception.
+Xử lý Bẫy 2 (Dữ liệu ảo): Kiểm tra giá trị trả về của executeUpdate(). Nếu bằng 0, nghĩa là mã bệnh nhân không tồn tại hoặc dữ liệu đã sai lệch, lập tức ném Exception để kích hoạt rollback().
+
+3. Thiết kế các bước thực hiện
+Mở kết nối thông qua DatabaseManager.
+Tắt AutoCommit.
+Bước 1: Kiểm tra số dư (Bẫy 1). Nếu ổn, thực hiện UPDATE trừ tiền. Kiểm tra dòng ảnh hưởng (Bẫy 2).
+Bước 2: Thực hiện UPDATE giải phóng giường bệnh. Kiểm tra dòng ảnh hưởng (Bẫy 2).
+Bước 3: Thực hiện UPDATE trạng thái bệnh nhân. Kiểm tra dòng ảnh hưởng (Bẫy 2).
+Nếu tất cả trôi chảy -> commit().
+Nếu có bất kỳ ngoại lệ nào -> rollback().
+Đóng kết nối trong khối finally

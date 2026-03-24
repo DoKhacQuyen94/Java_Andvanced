@@ -1,0 +1,12 @@
+PHẦN 1 - PHÂN TÍCH: TẠI SAO CHỈ IN RA LỖI LÀ SAI NGUYÊN TẮC?
+1. Vi phạm tính nhất quán (Consistency):
+- Khi setAutoCommit(false), các lệnh UPDATE đã thực hiện (trừ tiền) sẽ nằm ở trạng thái "chờ".
+- Nếu chỉ in ra lỗi mà không Rollback, các dòng dữ liệu này có thể bị KHÓA (Lock) bởi Database.
+- Các giao dịch khác muốn truy cập vào ví tiền của bệnh nhân này sẽ bị treo (Deadlock) vì chờ đợi.
+2. Nguy cơ "Dữ liệu rác":
+- Nếu không Rollback, giao dịch vẫn được coi là đang mở lơ lửng.
+- Nếu Connection này được trả về Pool và dùng cho tác vụ khác, những thay đổi lỗi trước đó
+có thể bị Commit nhầm vào Database, gây sai lệch số dư ví tiền cực kỳ nghiêm trọng.
+3. Hành động thiết yếu bị bỏ quên:
+- Lập trình viên bắt buộc phải gọi conn.rollback() trong khối catch để đưa Database
+về trạng thái an toàn trước khi xảy ra lỗi.
